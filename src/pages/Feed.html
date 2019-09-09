@@ -1,0 +1,20 @@
+<script>
+	import { afterUpdate } from 'svelte';
+	import Loader from '../components/Loader.html';
+
+	export let id = 1;
+	export let location;
+
+	function getColor() {
+		return Number( id ) === 1 ? 'green' : 'blue';
+	}
+
+	let color = getColor();
+	afterUpdate( () => color = getColor() );
+</script>
+
+
+<Loader bind:color />
+
+<h1>Feed #{id}</h1>
+

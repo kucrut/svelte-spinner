@@ -1,0 +1,37 @@
+<style>
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loader {
+    border-color: var(--loader-color);
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 50%;
+    border-right-color: transparent;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    animation: 1s linear infinite spin;
+    animation-delay: var(--loader-delay);
+}
+</style>
+
+<script>
+    import { onMount } from 'svelte';
+
+    export let color = 'orangered';
+
+    function getDelay() {
+        return Date.now() % 1000;
+    }
+
+    let delay;
+    onMount( () => delay = getDelay() );
+</script>
+
+<div class="loader" style="--loader-color: {color}; --loader-delay: -{delay}ms"></div>
