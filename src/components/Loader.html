@@ -26,12 +26,13 @@
 
     export let color = 'orangered';
 
-    function getDelay() {
-        return Date.now() % 1000;
+    let delay;
+
+    function setDelay() {
+        delay = Date.now() % 1000;
     }
 
-    let delay;
-    onMount( () => delay = getDelay() );
+    onMount( setDelay );
 </script>
 
 <div class="loader" style="--loader-color: {color}; --loader-delay: -{delay}ms"></div>
