@@ -6,16 +6,36 @@
 }
 
 .loader {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-left: auto;
+    margin-right: auto;
+}
+.loader:before,
+.loader:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
     border-color: var(--loader-color);
     border-width: 3px;
     border-style: solid;
     border-radius: 50%;
+}
+
+.loader:before {
+    opacity: 0.15;
+}
+
+.loader:after {
     border-right-color: transparent;
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    margin-top: 1em;
-    margin-bottom: 1em;
     animation: 1s linear infinite spin;
     animation-delay: var(--loader-delay);
 }
